@@ -1,0 +1,15 @@
+target/
+out/
+
+### STS ###
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
