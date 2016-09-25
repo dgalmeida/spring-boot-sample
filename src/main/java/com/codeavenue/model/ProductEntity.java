@@ -1,6 +1,9 @@
 package com.codeavenue.model;
 
+import com.codeavenue.model.dtos.ProductOnlyDto;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -19,6 +23,8 @@ import javax.persistence.OneToMany;
  * @since 9/23/16
  */
 @Entity
+@NamedQuery(name = ProductOnlyDto.FIND_ALL_CUSTOM_NAME,
+    query = ProductOnlyDto.FIND_ALL_CUSTOM_QUERY)
 public class ProductEntity implements Serializable {
 
   private static final long serialVersionUID = -2699979445028159628L;
@@ -35,8 +41,9 @@ public class ProductEntity implements Serializable {
   private ProductEntity parentProductId;
 
   @OneToMany(mappedBy = "productEntity")
-  private List<ImageEntity> image;
+  private List<ImageEntity> images;
 
+  // default constructor to orm
   public ProductEntity() {}
 
   public ProductEntity(String name, String description) {
@@ -76,12 +83,24 @@ public class ProductEntity implements Serializable {
     this.parentProductId = parentProductId;
   }
 
-  public List<ImageEntity> getImage() {
-    return image;
+  public List<ImageEntity> getImages() {
+    return images;
   }
 
-  public void setImage(List<ImageEntity> image) {
-    this.image = image;
+  public void setImages(List<ImageEntity> images) {
+    this.images = images;
+  }
+
+  public void addImage(String imageType) {
+    ImageEntity image = new ImageEntity(imageType, this);
+
+    if (images != null) {
+      this.images.add(image);
+      return;
+    }
+
+    this.images = new ArrayList<>();
+    this.images.add(image);
   }
 
   @Override

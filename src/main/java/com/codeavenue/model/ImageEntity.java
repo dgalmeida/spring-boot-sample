@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * #description#
+ * image model entity
  *
  * @author <a href="mailto:diegogr@ciandt.com">Diego G. R. Almeida</a>
  * @since 9/23/16
@@ -24,12 +24,17 @@ public class ImageEntity implements Serializable {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long imageId;
 
+  private String type;
+
   @ManyToOne
   @JoinColumn(name = "productEntity")
   private ProductEntity productEntity;
 
-  public static long getSerialVersionUID() {
-    return serialVersionUID;
+  public ImageEntity() {}
+
+  public ImageEntity(String type, ProductEntity productEntity) {
+    this.type = type;
+    this.productEntity = productEntity;
   }
 
   public Long getImageId() {
@@ -38,6 +43,14 @@ public class ImageEntity implements Serializable {
 
   public void setImageId(Long imageId) {
     this.imageId = imageId;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public ProductEntity getProductEntity() {

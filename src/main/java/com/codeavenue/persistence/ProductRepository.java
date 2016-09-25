@@ -1,13 +1,15 @@
 package com.codeavenue.persistence;
 
 import com.codeavenue.model.ProductEntity;
+import com.codeavenue.model.dtos.ProductOnlyDto;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+import java.util.List;
+
 /**
- * default interface to Spring Data generate the Restful
- * services at Runtime.
+ * Default interface to Spring Data fetch the H2 database
  *
  * @author <a href="mailto:diegogr@ciandt.com">Diego G. R. Almeida</a>
  * @since 9/23/16
@@ -15,4 +17,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "product", path = "product")
 public interface ProductRepository
     extends CrudRepository<ProductEntity, Long> {
+
+  List<ProductOnlyDto> findAllProductsOnly();
 }
