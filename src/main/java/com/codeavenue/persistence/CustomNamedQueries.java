@@ -3,7 +3,7 @@ package com.codeavenue.persistence;
 /**
  * #description#
  *
- * @author <a href="mailto:diegogr@ciandt.com">Diego G. R. Almeida</a>
+ * @author Diego G. R. Almeida
  * @since 9/26/16
  */
 public final class CustomNamedQueries {
