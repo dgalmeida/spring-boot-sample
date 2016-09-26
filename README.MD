@@ -8,7 +8,7 @@ This example was created using [Spring Boot](http://projects.spring.io/spring-bo
 4. spring-boot-starter-test (spring-boot context, junit and hamcrest)
 5. springfox-swagger2 and springfox-swagger-ui (as interative UI to the API)
 6. spring-boot-maven-plugin (as plugin to help start the application)
-7. Tomcat Embedded (as servlet container)
+7. Tomcat Embedded (as servlet container - HTTP server)
 
 # Running:
 
