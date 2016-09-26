@@ -18,5 +18,17 @@ import java.util.List;
 public interface ProductRepository
     extends CrudRepository<ProductEntity, Long> {
 
+  /**
+   * find all Products information only
+   *
+   * @return List of ProductsOnlyDto
+   */
   List<ProductOnlyDto> findAllProductsOnly();
+
+  /**
+   * find specific Product information only
+   *
+   * @return List of ProductsOnlyDto
+   */
+  List<ProductOnlyDto> findProductOnly(Long productId);
 }

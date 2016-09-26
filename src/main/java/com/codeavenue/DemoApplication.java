@@ -82,6 +82,14 @@ public class DemoApplication {
         log.info(productOnlyDto.toString());
       }
       log.info("");
+
+      // findProductOnly
+      log.info("ProductOnlyDTO findOne:");
+      log.info("------------------------------");
+      for (ProductOnlyDto productOnlyDto : repository.findProductOnly(product.getProductId())) {
+        log.info(productOnlyDto.toString());
+      }
+      log.info("");
     };
   }
 }
