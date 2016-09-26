@@ -13,7 +13,6 @@ import java.util.List;
  * @author Diego G. R. Almeida
  * @since 9/23/16
  */
-// @RepositoryRestResource(collectionResourceRel = "product", path = "product")
 public interface ProductRepository
     extends JpaRepository<ProductEntity, Long> {
 

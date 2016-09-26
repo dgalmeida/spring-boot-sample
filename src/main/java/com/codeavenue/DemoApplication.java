@@ -1,7 +1,6 @@
 package com.codeavenue;
 
 import com.codeavenue.model.ProductEntity;
-import com.codeavenue.model.dtos.ProductOnlyDto;
 import com.codeavenue.persistence.ProductRepository;
 
 import org.slf4j.Logger;
@@ -59,45 +58,7 @@ public class DemoApplication {
       repository.save(bag);
       repository.save(shoes);
       repository.save(book);
-      repository.save(dvd);;
-
-      // fetch all products
-      log.info("Customers found with findAll():");
-      log.info("-------------------------------");
-      for (ProductEntity product : repository.findAll()) {
-        log.info(product.toString());
-      }
-      log.info("");
-
-      // fetch an individual product by ID
-      ProductEntity product = repository.findOne(1L);
-      log.info("Product found with findOne(1L):");
-      log.info("------------------------------");
-      log.info(product.toString());
-      log.info("");
-
-      log.info("ProductOnlyDTO findAll:");
-      log.info("------------------------------");
-      for (ProductOnlyDto productOnlyDto : repository.findAllProductsOnly()) {
-        log.info(productOnlyDto.toString());
-      }
-      log.info("");
-
-      // findProductOnly
-      log.info("ProductOnlyDTO findOne:");
-      log.info("------------------------------");
-      ProductOnlyDto productOnlyDto = repository.findProductOnly(product.getProductId());
-      log.info(productOnlyDto.toString());
-
-      log.info("");
-
-      // fetch all products
-      log.info("Children found with findChildProducts():");
-      log.info("-------------------------------");
-      for (ProductEntity children : repository.findChildProducts(1L)) {
-        log.info(children.toString());
-      }
-      log.info("");
+      repository.save(dvd);
     };
   }
 }

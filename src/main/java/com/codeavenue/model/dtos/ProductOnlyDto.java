@@ -8,27 +8,6 @@ package com.codeavenue.model.dtos;
  */
 public class ProductOnlyDto {
 
-  public static final String FIND_ALL_PRODUCT_ONLY_CUSTOM_NAME =
-      "ProductEntity.findAllProductsOnly";
-
-  public static final String FIND_ALL_PRODUCT_ONLY_CUSTOM_QUERY =
-      "SELECT new " +
-          "com.codeavenue.model.dtos.ProductOnlyDto(p.productId, p.name, p.description) " +
-          "FROM ProductEntity p";
-
-  public static final String FIND_ONE_PRODUCT_ONLY_CUSTOM_NAME =
-      "ProductEntity.findProductOnly";
-
-  public static final String FIND_ONE_PRODUCT_ONLY_CUSTOM_QUERY =
-      "SELECT new " +
-          "com.codeavenue.model.dtos.ProductOnlyDto(p.productId, p.name, p.description) " +
-          "FROM ProductEntity p WHERE p.productId = ?1";
-
-  public static final String FIND_CHILD_PRODUCTS_NAME = "ProductEntity.findChildProducts";
-
-  public static final String FIND_CHILD_PRODUCTS_QUERY =
-      "SELECT p from ProductEntity p WHERE p.parentProduct.id = ?1";
-
   private Long productId;
   private String name;
   private String description;

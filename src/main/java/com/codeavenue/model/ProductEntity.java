@@ -1,6 +1,6 @@
 package com.codeavenue.model;
 
-import com.codeavenue.model.dtos.ProductOnlyDto;
+import com.codeavenue.persistence.CustomNamedQueries;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Serializable;
@@ -27,14 +27,14 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = ProductOnlyDto.FIND_ALL_PRODUCT_ONLY_CUSTOM_NAME,
-        query = ProductOnlyDto.FIND_ALL_PRODUCT_ONLY_CUSTOM_QUERY),
+    @NamedQuery(name = CustomNamedQueries.FIND_ALL_PRODUCT_ONLY_CUSTOM_NAME,
+        query = CustomNamedQueries.FIND_ALL_PRODUCT_ONLY_CUSTOM_QUERY),
 
-    @NamedQuery(name = ProductOnlyDto.FIND_ONE_PRODUCT_ONLY_CUSTOM_NAME,
-        query = ProductOnlyDto.FIND_ONE_PRODUCT_ONLY_CUSTOM_QUERY),
+    @NamedQuery(name = CustomNamedQueries.FIND_ONE_PRODUCT_ONLY_CUSTOM_NAME,
+        query = CustomNamedQueries.FIND_ONE_PRODUCT_ONLY_CUSTOM_QUERY),
 
-    @NamedQuery(name = ProductOnlyDto.FIND_CHILD_PRODUCTS_NAME,
-        query = ProductOnlyDto.FIND_CHILD_PRODUCTS_QUERY)
+    @NamedQuery(name = CustomNamedQueries.FIND_CHILD_PRODUCTS_NAME,
+        query = CustomNamedQueries.FIND_CHILD_PRODUCTS_QUERY)
 })
 public class ProductEntity implements Serializable {
 
