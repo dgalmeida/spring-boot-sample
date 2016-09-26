@@ -3,20 +3,19 @@ package com.codeavenue.persistence;
 import com.codeavenue.model.ProductEntity;
 import com.codeavenue.model.dtos.ProductOnlyDto;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 /**
  * Default interface to Spring Data fetch the H2 database
  *
- * @author <a href="mailto:diegogr@ciandt.com">Diego G. R. Almeida</a>
+ * @author Diego G. R. Almeida
  * @since 9/23/16
  */
-@RepositoryRestResource(collectionResourceRel = "product", path = "product")
+// @RepositoryRestResource(collectionResourceRel = "product", path = "product")
 public interface ProductRepository
-    extends CrudRepository<ProductEntity, Long> {
+    extends JpaRepository<ProductEntity, Long> {
 
   /**
    * find all Products information only
@@ -30,5 +29,13 @@ public interface ProductRepository
    *
    * @return List of ProductsOnlyDto
    */
-  List<ProductOnlyDto> findProductOnly(Long productId);
+  ProductOnlyDto findProductOnly(Long productId);
+
+
+  /**
+   * find list of child products from parent
+   *
+   * @return List of ProductsOnlyDto
+   */
+  List<ProductEntity> findChildProducts(Long parentProductId);
 }

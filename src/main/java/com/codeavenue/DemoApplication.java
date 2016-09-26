@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Bean;
 
 
 /**
- * #description#
+ * main spring-boot application starter
  *
- * @author <a href="mailto:diegogr@ciandt.com">Diego G. R. Almeida</a>
+ * @author Diego G. R. Almeida
  * @since 9/23/16
  */
 @SpringBootApplication
@@ -50,10 +50,10 @@ public class DemoApplication {
       repository.save(parent);
 
 
-      bag.setParentProductId(parent);
-      shoes.setParentProductId(parent);
-      book.setParentProductId(parent);
-      dvd.setParentProductId(parent);
+      bag.setParentProduct(parent);
+      shoes.setParentProduct(parent);
+      book.setParentProduct(parent);
+      dvd.setParentProduct(parent);
 
       // create and save Products
       repository.save(bag);
@@ -86,8 +86,16 @@ public class DemoApplication {
       // findProductOnly
       log.info("ProductOnlyDTO findOne:");
       log.info("------------------------------");
-      for (ProductOnlyDto productOnlyDto : repository.findProductOnly(product.getProductId())) {
-        log.info(productOnlyDto.toString());
+      ProductOnlyDto productOnlyDto = repository.findProductOnly(product.getProductId());
+      log.info(productOnlyDto.toString());
+
+      log.info("");
+
+      // fetch all products
+      log.info("Children found with findChildProducts():");
+      log.info("-------------------------------");
+      for (ProductEntity children : repository.findChildProducts(1L)) {
+        log.info(children.toString());
       }
       log.info("");
     };

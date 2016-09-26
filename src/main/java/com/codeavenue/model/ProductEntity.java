@@ -1,11 +1,13 @@
 package com.codeavenue.model;
 
 import com.codeavenue.model.dtos.ProductOnlyDto;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,7 +22,7 @@ import javax.persistence.OneToMany;
 /**
  * Principal product model entity
  *
- * @author <a href="mailto:diegogr@ciandt.com">Diego G. R. Almeida</a>
+ * @author Diego G. R. Almeida
  * @since 9/23/16
  */
 @Entity
@@ -29,7 +31,10 @@ import javax.persistence.OneToMany;
         query = ProductOnlyDto.FIND_ALL_PRODUCT_ONLY_CUSTOM_QUERY),
 
     @NamedQuery(name = ProductOnlyDto.FIND_ONE_PRODUCT_ONLY_CUSTOM_NAME,
-        query = ProductOnlyDto.FIND_ONE_PRODUCT_ONLY_CUSTOM_QUERY)
+        query = ProductOnlyDto.FIND_ONE_PRODUCT_ONLY_CUSTOM_QUERY),
+
+    @NamedQuery(name = ProductOnlyDto.FIND_CHILD_PRODUCTS_NAME,
+        query = ProductOnlyDto.FIND_CHILD_PRODUCTS_QUERY)
 })
 public class ProductEntity implements Serializable {
 
@@ -42,11 +47,12 @@ public class ProductEntity implements Serializable {
   private String name;
   private String description;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "parent")
-  private ProductEntity parentProductId;
+  private ProductEntity parentProduct;
 
-  @OneToMany(mappedBy = "productEntity")
+  @OneToMany(mappedBy = "productEntity", cascade = CascadeType.ALL)
+  @JsonManagedReference
   private List<ImageEntity> images;
 
   public ProductEntity() {}
@@ -80,12 +86,12 @@ public class ProductEntity implements Serializable {
     this.description = description;
   }
 
-  public ProductEntity getParentProductId() {
-    return parentProductId;
+  public ProductEntity getParentProduct() {
+    return parentProduct;
   }
 
-  public void setParentProductId(ProductEntity parentProductId) {
-    this.parentProductId = parentProductId;
+  public void setParentProduct(ProductEntity parentProduct) {
+    this.parentProduct = parentProduct;
   }
 
   public List<ImageEntity> getImages() {

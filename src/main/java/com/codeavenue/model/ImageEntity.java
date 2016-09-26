@@ -1,5 +1,7 @@
 package com.codeavenue.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -12,7 +14,7 @@ import javax.persistence.ManyToOne;
 /**
  * image model entity
  *
- * @author <a href="mailto:diegogr@ciandt.com">Diego G. R. Almeida</a>
+ * @author Diego G. R. Almeida
  * @since 9/23/16
  */
 @Entity
@@ -28,6 +30,7 @@ public class ImageEntity implements Serializable {
 
   @ManyToOne
   @JoinColumn(name = "productEntity")
+  @JsonBackReference
   private ProductEntity productEntity;
 
   public ImageEntity() {}
