@@ -1,4 +1,4 @@
-# Rest API CodeAvenue Demo
+# Rest API Demo
 
 This example was created using [Spring Boot](http://projects.spring.io/spring-boot/), more especifically.
 
