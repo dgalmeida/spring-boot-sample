@@ -46,3 +46,4 @@ To access the database (h2-console):
 	3.The suit of test is just integration tests using spring-mock-mvn to perform the api and match the results.
 	4.Security was not considered (out of scope).
 	5.No perfect package organization and well defined interfaces (to much for demo)
+	6.The gitflow (http://danielkummer.github.io/git-flow-cheatsheet/index.html) common feature delivery using git was not followed.
