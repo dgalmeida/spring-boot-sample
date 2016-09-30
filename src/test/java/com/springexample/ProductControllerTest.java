@@ -1,8 +1,6 @@
-package com.codeavenue;
+package com.springexample;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -10,9 +8,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.codeavenue.model.ProductEntity;
-import com.codeavenue.model.dtos.ProductOnlyDto;
-import com.codeavenue.persistence.ProductRepository;
+import com.springexample.model.ProductEntity;
+import com.springexample.model.dtos.ProductOnlyDto;
+import com.springexample.persistence.ProductRepository;
 
 import org.junit.Rule;
 import org.junit.Test;

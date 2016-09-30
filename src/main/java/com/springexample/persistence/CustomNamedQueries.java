@@ -1,7 +1,7 @@
-package com.codeavenue.persistence;
+package com.springexample.persistence;
 
 /**
- * #description#
+ * custom named queries to perform on h2
  *
  * @author Diego G. R. Almeida
  * @since 9/26/16
@@ -13,7 +13,7 @@ public final class CustomNamedQueries {
 
   public static final String FIND_ALL_PRODUCT_ONLY_CUSTOM_QUERY =
       "SELECT new " +
-          "com.codeavenue.model.dtos.ProductOnlyDto(p.productId, p.name, p.description) " +
+          "com.springexample.model.dtos.ProductOnlyDto(p.productId, p.name, p.description) " +
           "FROM ProductEntity p";
 
   public static final String FIND_ONE_PRODUCT_ONLY_CUSTOM_NAME =
@@ -21,7 +21,7 @@ public final class CustomNamedQueries {
 
   public static final String FIND_ONE_PRODUCT_ONLY_CUSTOM_QUERY =
       "SELECT new " +
-          "com.codeavenue.model.dtos.ProductOnlyDto(p.productId, p.name, p.description) " +
+          "com.springexample.model.dtos.ProductOnlyDto(p.productId, p.name, p.description) " +
           "FROM ProductEntity p WHERE p.productId = ?1";
 
   public static final String FIND_CHILD_PRODUCTS_NAME = "ProductEntity.findChildProducts";

@@ -1,7 +1,7 @@
-package com.codeavenue;
+package com.springexample;
 
-import com.codeavenue.model.ProductEntity;
-import com.codeavenue.persistence.ProductRepository;
+import com.springexample.model.ProductEntity;
+import com.springexample.persistence.ProductRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

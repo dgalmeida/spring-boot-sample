@@ -1,7 +1,7 @@
-package com.codeavenue.persistence;
+package com.springexample.persistence;
 
-import com.codeavenue.model.ProductEntity;
-import com.codeavenue.model.dtos.ProductOnlyDto;
+import com.springexample.model.ProductEntity;
+import com.springexample.model.dtos.ProductOnlyDto;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

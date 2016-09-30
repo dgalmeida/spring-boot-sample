@@ -1,4 +1,4 @@
-package com.codeavenue.model.dtos;
+package com.springexample.model.dtos;
 
 /**
  * dto entity to list only products

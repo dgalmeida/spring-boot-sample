@@ -1,9 +1,9 @@
-package com.codeavenue.endpoints;
+package com.springexample.endpoints;
 
-import com.codeavenue.model.ImageEntity;
-import com.codeavenue.model.ProductEntity;
-import com.codeavenue.model.dtos.ProductOnlyDto;
-import com.codeavenue.persistence.ProductRepository;
+import com.springexample.model.ImageEntity;
+import com.springexample.model.ProductEntity;
+import com.springexample.model.dtos.ProductOnlyDto;
+import com.springexample.persistence.ProductRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;

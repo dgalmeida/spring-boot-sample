@@ -1,4 +1,4 @@
-package com.codeavenue;
+package com.springexample;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +33,7 @@ public class SwaggerConfig {
 
   private ApiInfo apiInfo() {
     return new ApiInfoBuilder()
-        .title("Rest API CodeAvenue Demo")
+        .title("Rest API SpringBoot Demo")
         .description("Rest app using spring-boot and doc by swagger")
         .version("1.0")
         .termsOfServiceUrl("http://localhost:8080/v2/api-docs")
